@@ -16,7 +16,7 @@ namespace PruebaTecnicaApi.Controllers
             _logger = logger;
         }
 
-        [HttpGet("Books")]
+        [HttpGet()]
        public async Task<List<Books>> GetBooksAsync()
         {
             List<Books> book = null;
@@ -28,7 +28,7 @@ namespace PruebaTecnicaApi.Controllers
             return book;
         }
 
-        [HttpGet("Books/{id}")]
+        [HttpGet("{id}")]
         public async Task<Books> BooksById(int id)
         {
             Books book = null;
@@ -40,7 +40,7 @@ namespace PruebaTecnicaApi.Controllers
             return book;
         }
 
-        [HttpPost("Books")]
+        [HttpPost()]
         public async Task<Books> Create(Books book)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync(
@@ -52,7 +52,7 @@ namespace PruebaTecnicaApi.Controllers
             return book;
         }
 
-        [HttpPut("Books/{id}")]
+        [HttpPut("{id}")]
         public async Task<Books> Update( Books book, int id)
         {
             HttpResponseMessage response = await client.PutAsJsonAsync(
@@ -64,7 +64,7 @@ namespace PruebaTecnicaApi.Controllers
             return book;
         }
 
-        [HttpDelete("Books/{id}")]
+        [HttpDelete("{id}")]
         public async Task<System.Net.HttpStatusCode> delete(int id)
         {
             
